@@ -37,7 +37,4 @@ jobs:
           echo "type: ${{ github.event.inputs.businesstype }}"
           echo "address: ${{ github.event.inputs.userinput_address }}"
           echo "radius: ${{ github.event.inputs.userinput_radius }}"
-          BUSINESS_TYPE="${{ github.event.inputs.businesstype }}" python3 nearbybusinesses.py
-          ADDRESS="${{ github.event.inputs.userinput_address }}"
-          RADIUS="${{ github.event.inputs.userinput_radius }}"
-          APIKEY="${{ github.event.inputs.userinput_apikey }}"
+          BUSINESS_TYPE="${{ github.event.inputs.businesstype }}" ADDRESS="${{ github.event.inputs.userinput_address }}" RADIUS="${{ github.event.inputs.userinput_radius }}" APIKEY="${{ github.event.inputs.userinput_apikey }}" python3 nearbybusinesses.py
