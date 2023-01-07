@@ -128,7 +128,7 @@ def searching(event):
     # Inline conditional to set large df based on number of smaller not empty dfs 
     large_df = pd.concat([df1, df2, df3]) if not df1.empty and not df2.empty and not df3.empty else pd.concat([df1, df2]) if not df1.empty and not df2.empty else df1
     print(large_df)
-    # large_df.to_excel('output.xlsx',index=False)
+    large_df.to_csv('output.csv',index=False)
     # root.destroy()
     return
 

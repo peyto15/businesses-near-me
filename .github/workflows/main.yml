@@ -38,3 +38,7 @@ jobs:
           echo "address: ${{ github.event.inputs.userinput_address }}"
           echo "radius: ${{ github.event.inputs.userinput_radius }}"
           BUSINESS_TYPE="${{ github.event.inputs.businesstype }}" ADDRESS="${{ github.event.inputs.userinput_address }}" RADIUS="${{ github.event.inputs.userinput_radius }}" APIKEY="${{ github.event.inputs.userinput_apikey }}" python3 nearbybusinesses.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: businesses-output
+          path: output.csv
