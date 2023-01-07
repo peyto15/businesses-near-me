@@ -1,12 +1,13 @@
 name: Run Script
 
-on: workflow_call
-  inputs:
-    businesstype:
-      description: 'The type of business you would like to search for'
-      default: 'cafe'
-      required: false
-      type: string
+on: 
+  workflow_dispatch:
+    inputs:
+      businesstype:
+        description: The type of business you would like to search for
+        default: cafe
+        required: false
+        type: string
 
 jobs:
   build:
