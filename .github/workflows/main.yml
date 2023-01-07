@@ -21,9 +21,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      google_api_key: ${{ secrets.GOOGLE_API_KEY }}
     steps:
-      - env:
-          google_api_key: ${{ secrets.GOOGLE_API_KEY }}
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
