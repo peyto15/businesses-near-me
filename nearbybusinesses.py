@@ -1,9 +1,9 @@
 import requests
 import pandas as pd
-import tkinter as tk
-from tkinter import *
+# import tkinter as tk
+# from tkinter import *
 
-root = Tk()
+# root = Tk()
 
 df1 = pd.DataFrame(columns= ['Name','Business Status','Address','Rating','Phone Number','Website'])
 df2 = pd.DataFrame(columns= ['Name','Business Status','Address','Rating','Phone Number','Website'])
@@ -123,35 +123,35 @@ def searching(event):
     # Inline conditional to set large df based on number of smaller not empty dfs 
     large_df = pd.concat([df1, df2, df3]) if not df1.empty and not df2.empty and not df3.empty else pd.concat([df1, df2]) if not df1.empty and not df2.empty else df1
     large_df.to_excel('output.xlsx',index=False)
-    root.destroy()
+    # root.destroy()
     return
 
-tk.Label(text="This is a simple tool to get information on some businesses near you! Please check the folder that this application is located in for a file named output.xlsx for your results.").pack()
-tk.Label(text="One limitation of this application is that it can only return 60 businesses maximum at the moment. This is a limitation by Google's Places API.").pack()
-lbl_userlocation = tk.Label(text="Enter your street address and postal code (i.e. 123 Happy Street 45678)")
-ent_userlocation = tk.Entry()
-lbl_userlocation.pack()
-ent_userlocation.pack()
+# tk.Label(text="This is a simple tool to get information on some businesses near you! Please check the folder that this application is located in for a file named output.xlsx for your results.").pack()
+# tk.Label(text="One limitation of this application is that it can only return 60 businesses maximum at the moment. This is a limitation by Google's Places API.").pack()
+# lbl_userlocation = tk.Label(text="Enter your street address and postal code (i.e. 123 Happy Street 45678)")
+# ent_userlocation = tk.Entry()
+# lbl_userlocation.pack()
+# ent_userlocation.pack()
 
-lbl_custom_radius = tk.Label(text="Radius in Miles (Up to 30)")
-ent_custom_radius = tk.Entry()
-lbl_custom_radius.pack()
-ent_custom_radius.pack()
+# lbl_custom_radius = tk.Label(text="Radius in Miles (Up to 30)")
+# ent_custom_radius = tk.Entry()
+# lbl_custom_radius.pack()
+# ent_custom_radius.pack()
 
-lbl_userapikey = tk.Label(text="Enter your API key")
-ent_userapikey = tk.Entry()
-lbl_userapikey.pack()
-ent_userapikey.pack()
+# lbl_userapikey = tk.Label(text="Enter your API key")
+# ent_userapikey = tk.Entry()
+# lbl_userapikey.pack()
+# ent_userapikey.pack()
 
-# Datatype of menu text
-drop_clicked = StringVar()
-# Initial menu text
-drop_clicked.set( "Select an option" )
-# Dropdown for now - can improve when added to GH Actions or built in a combobox with the proper function to run it
-drop = OptionMenu( root , drop_clicked , *business_types )
-drop.pack()
+# # Datatype of menu text
+# drop_clicked = StringVar()
+# # Initial menu text
+# drop_clicked.set( "Select an option" )
+# # Dropdown for now - can improve when added to GH Actions or built in a combobox with the proper function to run it
+# drop = OptionMenu( root , drop_clicked , *business_types )
+# drop.pack()
 
-btn_runit = tk.Button(text="Run the tool!")
-btn_runit.bind("<Button-1>", searching)
-btn_runit.pack()
-root.mainloop()
+# btn_runit = tk.Button(text="Run the tool!")
+# btn_runit.bind("<Button-1>", searching)
+# btn_runit.pack()
+# root.mainloop()

@@ -4,9 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       businesstype:
-        description: The type of business you would like to search for
+        description: Select the type of business you would like to search for
         default: cafe
-        required: false
+        required: true
+        type: string
+      userinput_address:
+        description: Enter your street address and postal code (i.e. 123 Happy Street 45678) 
+        required: true
+        type: string
+      userinput_radius:
+        description: Enter the radius to search in miles (Up to 30) 
+        required: true
+        type: string
+      userinput_apikey:
+        description: Enter your Google Maps API key here 
+        required: true
         type: string
 
 jobs:
