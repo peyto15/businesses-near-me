@@ -1,7 +1,7 @@
 name: Run Script
 
 on:
-  push:
+  workflow_call:
     inputs:
       businesstype: 'cafe'
 
