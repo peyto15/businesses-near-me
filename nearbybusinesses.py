@@ -117,7 +117,7 @@ def lasttoken_actions(lastpage, lastpagetoken):
         print("FINAL PAGE REGARDLESS")
     return df3
 
-def searching(event):
+def searching():
     nearby_search_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='+get_coordinates_from_address()+'&radius='+get_radius_entry()+'&type='+get_businesstype_from_user()+'&key='+get_apikey_from_user()
     x = requests.get(nearby_search_url)
     resp_dict = x.json()
@@ -131,6 +131,8 @@ def searching(event):
     large_df.to_csv('output.csv',index=False)
     # root.destroy()
     return
+
+searching()
 
 # tk.Label(text="This is a simple tool to get information on some businesses near you! Please check the folder that this application is located in for a file named output.xlsx for your results.").pack()
 # tk.Label(text="One limitation of this application is that it can only return 60 businesses maximum at the moment. This is a limitation by Google's Places API.").pack()
