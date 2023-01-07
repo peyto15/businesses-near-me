@@ -37,7 +37,7 @@ def get_coordinates_from_address():
     url = 'https://addressvalidation.googleapis.com/v1:validateAddress?key='+get_apikey_from_user()
     data =  { 
     "address": {
-    "addressLines": [input_address.get()]
+    "addressLines": [input_address]
         },
     "enableUspsCass": "true"
     }
