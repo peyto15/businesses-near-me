@@ -1,9 +1,8 @@
 name: Run Script
 
-on:
-  workflow_call:
-    inputs:
-      businesstype: 'cafe'
+on: workflow_call
+  inputs:
+    businesstype: 'cafe'
 
 jobs:
   build:
