@@ -16,13 +16,14 @@ on:
         description: Enter the radius to search in miles (Up to 30) 
         required: true
         type: string
-    env:
-      google_api_key: ${{ secrets.GOOGLE_API_KEY }}
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - env:
+          google_api_key: ${{ secrets.GOOGLE_API_KEY }}
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
