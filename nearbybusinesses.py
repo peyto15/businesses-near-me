@@ -5,7 +5,7 @@ import os
 # from tkinter import *
 # root = Tk()
 
-input_businesstype = os.environ['BUSINESS_TYPE']
+input_businesstype = os.environ["BUSINESS_TYPE"]
 input_address = os.environ['ADDRESS']
 input_radius = os.environ['RADIUS']
 input_apikey = os.environ['APIKEY']
