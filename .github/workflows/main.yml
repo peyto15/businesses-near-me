@@ -16,10 +16,7 @@ on:
         description: Enter the radius to search in miles (Up to 30) 
         required: true
         type: string
-      userinput_apikey:
-        description: Enter your Google Maps API key here 
-        required: true
-        type: string
+      google_api_key: ${{ secrets.GOOGLE_API_KEY }}
 
 jobs:
   build:
@@ -37,7 +34,7 @@ jobs:
           echo "type: ${{ github.event.inputs.businesstype }}"
           echo "address: ${{ github.event.inputs.userinput_address }}"
           echo "radius: ${{ github.event.inputs.userinput_radius }}"
-          BUSINESS_TYPE="${{ github.event.inputs.businesstype }}" ADDRESS="${{ github.event.inputs.userinput_address }}" RADIUS="${{ github.event.inputs.userinput_radius }}" APIKEY="${{ github.event.inputs.userinput_apikey }}" python3 nearbybusinesses.py
+          BUSINESS_TYPE="${{ github.event.inputs.businesstype }}" ADDRESS="${{ github.event.inputs.userinput_address }}" RADIUS="${{ github.event.inputs.userinput_radius }}" APIKEY="${{ github.event.inputs.google_api_key }}" python3 nearbybusinesses.py
       - uses: actions/upload-artifact@v3
         with:
           name: businesses-output
