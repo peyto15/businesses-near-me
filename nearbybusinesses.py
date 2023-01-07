@@ -1,9 +1,14 @@
 import requests
 import pandas as pd
+import os
 # import tkinter as tk
 # from tkinter import *
-
 # root = Tk()
+
+input_businesstype = os.environ['BUSINESS_TYPE']
+input_address = os.environ['ADDRESS']
+input_radius = os.environ['RADIUS']
+input_apikey = os.environ['APIKEY']
 
 df1 = pd.DataFrame(columns= ['Name','Business Status','Address','Rating','Phone Number','Website'])
 df2 = pd.DataFrame(columns= ['Name','Business Status','Address','Rating','Phone Number','Website'])
@@ -21,18 +26,18 @@ business_types = ["accounting", "airport", "amusement_park", "aquarium", "art_ga
         "synagogue", "taxi_stand", "tourist_attraction", "train_station", "transit_station", "travel_agency", "university", "veterinary_care", "zoo", ]
 
 def get_apikey_from_user():
-    user_entered_apikey = ent_userapikey.get()
+    user_entered_apikey = input_apikey
     return user_entered_apikey
 
 def get_businesstype_from_user():
-    user_selected_businesstype = drop_clicked.get()
+    user_selected_businesstype = input_businesstype
     return user_selected_businesstype
 
 def get_coordinates_from_address():
     url = 'https://addressvalidation.googleapis.com/v1:validateAddress?key='+get_apikey_from_user()
     data =  { 
     "address": {
-    "addressLines": [ent_userlocation.get()]
+    "addressLines": [input_address.get()]
         },
     "enableUspsCass": "true"
     }
@@ -42,7 +47,7 @@ def get_coordinates_from_address():
     return user_coordinates
 
 def get_radius_entry():
-    user_entered_radius = ent_custom_radius.get()
+    user_entered_radius = input_radius
     converted_to_meters = int(user_entered_radius)*1650
     converted_to_meters_string = str(converted_to_meters)
     return converted_to_meters_string
@@ -122,7 +127,8 @@ def searching(event):
     df3 = lasttoken_actions(lastpage, lastpagetoken)
     # Inline conditional to set large df based on number of smaller not empty dfs 
     large_df = pd.concat([df1, df2, df3]) if not df1.empty and not df2.empty and not df3.empty else pd.concat([df1, df2]) if not df1.empty and not df2.empty else df1
-    large_df.to_excel('output.xlsx',index=False)
+    print(large_df)
+    # large_df.to_excel('output.xlsx',index=False)
     # root.destroy()
     return
 
