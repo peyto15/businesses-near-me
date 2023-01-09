@@ -7,8 +7,10 @@ This is a Python tool run in GitHub Actions that uses Google's Place & Address V
 ## How do I set this up for myself? (5 - 10 minutes)
 ### Get your Google API key
 You will need your own Google API key for this tool, and that requires a billing account set up in Google Cloud Platform. HOWEVER, you get $200 in free credits per month. That should cover you for many runs of this tool. Further, when you set up a billing account it automatically sets up budget alerts for you. Read more about getting your own API key here: https://developers.google.com/maps/documentation/places/web-service/cloud-setup. You will only need to follow the "Enable Billing" and "Enable APIs" sections. All you will need from this is your API key itself. 
+### Enable Address Validation API
+Within the GCP Console, search for the Address Validation API. From there, enable the API. This will use the same key that you grabbed above so you are done with the GCP Console at this point.
 ### Fork this repository 
-Once you fork the repository, head over to the Actions tab. You will see a warning like this: <br /><br />
+Click the button on the top right of this repository and select _fork_ to a repository on your account. This is done so that you can use your repository's secrets. Once you fork the repository, head over to the Actions tab. You will see a warning like this: <br /><br />
 _"Because this repository contained workflow files when it was forked, we have disabled them from running on this fork. Make sure you understand the configured workflows and their expected usage before enabling Actions on this repository."_ <br /><br />
 From there, press the green button that says _"I understand my workflows, go ahead and enable them."_
 ### Put your Google API key in the forked repository secrets
